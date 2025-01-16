@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Video Downloader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .link {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>YouTube Video Downloader</h1>
+  <p>Enter the YouTube video URL below:</p>
+  <input type="text" id="videoUrl" placeholder="Paste YouTube link here...">
+  <button onclick="downloadVideo()">Download Video</button>
+  <div id="downloadLink" class="link"></div>
+  
+  <script>
+    function downloadVideo() {
+      const videoUrl = document.getElementById('videoUrl').value;
+      const apiURL = `https://api.example.com/download?url=${encodeURIComponent(videoUrl)}`;
+
+      if (!videoUrl) {
+        alert("Please enter a valid YouTube URL.");
+        return;
+      }
+
+      // Mock API - Update this part with a real working API
+      const exampleApiResponse = {
+        success: true,
+        downloadLink: "https://example.com/download/video.mp4"
+      };
+
+      // Simulate an API response
+      setTimeout(() => {
+        if (exampleApiResponse.success) {
+          document.getElementById('downloadLink').innerHTML = 
+            `<a href="${exampleApiResponse.downloadLink}" target="_blank" download>Click here to download your video</a>`;
+        } else {
+          alert("Error fetching download link. Please try again.");
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
